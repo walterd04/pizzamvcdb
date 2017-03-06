@@ -1,0 +1,17 @@
+# log into the jdoe mysql -p client tool and give the command: source createOrderTable.txt
+
+use jdoe;
+
+# do not name your table order as I first did as that is a reserved word...
+drop table if exists order_table;
+
+create table order_table (
+email varchar(50) not null,
+size varchar(10) not null,
+toppings varchar(50) not null,
+primary key (email));
+
+insert into order_table values("sue@ex.com", "large", "pepperoni");
+insert into order_table values("bob@mu.edu", "small", "none");
+insert into order_table values("beth@ex.com", "medium", "pepperoni, mushroom, pineapple");
+
