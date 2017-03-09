@@ -7,20 +7,42 @@ package model;
  */
 public class PizzaOrder {
 
+    private int id;
     private String email;
     private String size;
     private String toppings;
+    private String date;
 
     public PizzaOrder() {
         email = "";
         size = "";
         toppings = null;
+        id = 0;
+        date = "";
     }
 
-    public PizzaOrder(String email, String size, String toppings) {
+    public PizzaOrder(int id, String email, String size, String toppings, String date) {
         this.email = email;
         this.size = size;
         this.toppings = toppings;
+        this.id = id;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getToppings() {

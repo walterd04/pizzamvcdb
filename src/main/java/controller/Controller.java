@@ -74,7 +74,7 @@ public class Controller extends HttpServlet {
             // store data in an PizzaOrder object
             // the PizzaOrder class is part of the MVC model 
             // as is the DAO (data access object)
-            PizzaOrder myOrder = new PizzaOrder(email, size, toppings);
+            PizzaOrder myOrder = new PizzaOrder(0, email, size, toppings, "");
             System.out.println("Controller:order:pizza=" + myOrder);
 
             // validate the parameters

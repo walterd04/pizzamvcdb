@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>John's Online Pizza Store</title>
+        <title>Devin's Online Pizza Store</title>
         <link rel="stylesheet" href="mystyle.css">
     </head>
     <body>
-        <h1><a href="home.html">John's Online Pizza Store</a></h1>
+        <h1><a href="home.html">Devin's Online Pizza Store</a></h1>
         <p>The pizza order had an error. Please try again or call us at 570-123-4567.</p>
     </body>
 </html>

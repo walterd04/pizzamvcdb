@@ -20,7 +20,7 @@ public class DAOPizzaOrder {
     protected final static boolean DEBUG = true;
 
     public static void addOrder(PizzaOrder order) {
-        final String QUERY = "insert into order_table (email, size, toppings) VALUES (?, ?, ?)";
+        final String QUERY = "insert into order_table (id, email, size, toppings, orderTime) VALUES (null, ?, ?, ?, now());";
         try (
                 Connection con = DBConnection.getConnection();
                 PreparedStatement stmt = con.prepareStatement(QUERY);) {
@@ -38,7 +38,7 @@ public class DAOPizzaOrder {
 
     public static List<PizzaOrder> getOrderList() {
         final List<PizzaOrder> myList = new ArrayList();
-        final String QUERY = "select email, size, toppings from order_table";
+        final String QUERY = "select id, email, size, toppings, orderTime from order_table order by orderTime desc;";
         try (
                 Connection con = DBConnection.getConnection();
                 PreparedStatement stmt = con.prepareStatement(QUERY)) {
@@ -47,7 +47,7 @@ public class DAOPizzaOrder {
             }
             ResultSet rs = stmt.executeQuery(QUERY);
             while (rs.next()) {
-                myList.add(new PizzaOrder(rs.getString("email"), rs.getString("size"), rs.getString("toppings")));
+                myList.add(new PizzaOrder(rs.getInt("id"), rs.getString("email"), rs.getString("size"), rs.getString("toppings"), rs.getString("orderTime")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOPizzaOrder.class.getName()).log(Level.SEVERE, null, ex);
